@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="../Styles.css">
+    <link rel="stylesheet" href="course-list.style.client.css">
+    <title>Course List</title>
+    <style>
+    </style>
+</head>
+<body class="wm-body">
+    <nav class="navbar navbar-expand-lg wm-sticky-Nav-Bar">
+        <div class="row" style="width:100%">
+            <div class="col-sm-1 wm-margin">
+                <i class="fas fa-bars wm-white"></i>
+            </div>
+            <div class="collapse navbar-collapse wm-white wm-course-manage-size">
+                <label class="">Course Manager</label>
+            </div>
+            <div class="col-sm-6">
+                <input class="form-control wm-input" type="text" placeholder="New Course Title"/>
+            </div>
+            <div class="col-sm-2">
+                <span class="fa-stack" style="vertical-align: top">
+                    <i class="fas fa-circle fa-stack-2x wm-red"></i>
+                    <i class="fas fa-plus fa-stack-1x wm-white"></i>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container wm-container">
+        <div class="d-none d-md-block">
+            <div class="row wm-th">
+<!--                <div class="col-1"></div>-->
+                <div class="col-7">Title</div>
+                <div class="col-2">
+                    Owned by
+                    <i class="fas fa-caret-down"></i>
+                </div>
+                <div class="col-2">Modified</div>
+                <div class="col-1">
+                    <i class="fas fa-grip-horizontal wm-icon-padding"></i>
+                    <i class="fas fa-sort-alpha-up"></i>
+                </div>
+<!--                <div class="col-1"></div>-->
+            </div>
+        </div>
+        <div class="row wm-row">
+            <div class="col-sm-11 col-md-7">
+                    <a href="../editor/editor.template.client.html">
+                        <i class="fas fa-file-alt"></i>
+                        <label class="wm-course-label">CS5500 Software Engineering Graduate</label>
+                    </a>
+            </div>
+            <div class="col-md-2 d-none d-md-block">Meng Wang</div>
+            <div class="col-md-2 d-none d-md-block">6:45 PM</div>
+            <div class="col-sm-1 col-md-1"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="row wm-row">
+            <div class="col-sm-11 col-md-7">
+                    <a href="../editor/editor.template.client.html">
+                        <i class="fas fa-file-alt"></i>
+                        <label class="wm-course-label">CS4550 Software Engineering Undergraduate</label>
+                    </a>
+            </div>
+            <div class="col-md-2 d-none d-md-block">Meng Wang</div>
+            <div class="col-md-2 d-none d-md-block">6:45 PM</div>
+            <div class="col-sm-1 col-md-1"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="row wm-row">
+            <div class="col-sm-11 col-md-7">
+                    <a href="../editor/editor.template.client.html">
+                        <i class="fas fa-file-alt"></i>
+                        <label class="wm-course-label">CS4500 WebDev Undergraduate</label>
+                    </a>
+            </div>
+            <div class="col-md-2 d-none d-md-block">Meng Wang</div>
+            <div class="col-md-2 d-none d-md-block">6:45 PM</div>
+            <div class="col-sm-1 col-md-1"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="row wm-row">
+            <div class="col-sm-11 col-md-7">
+                    <a href="../editor/editor.template.client.html">
+                        <i class="fas fa-file-alt"></i>
+                        <label class="wm-course-label">CS5610 WebDev Graduate</label>
+                    </a>
+            </div>
+            <div class="col-md-2 d-none d-md-block">Meng Wang</div>
+            <div class="col-md-2 d-none d-md-block">6:45 PM</div>
+            <div class="col-sm-1 col-md-1"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="row wm-row">
+            <div class="col-sm-11 col-md-7">
+                    <a href="../editor/editor.template.client.html">
+                        <i class="fas fa-file-alt"></i>
+                        <label class="wm-course-label">CS5200 Intro to Database</label>
+                    </a>
+            </div>
+            <div class="col-md-2 d-none d-md-block">Meng Wang</div>
+            <div class="col-md-2 d-none d-md-block">6:44 PM</div>
+            <div class="col-sm-1 col-md-1"><i class="fas fa-times"></i></div>
+        </div>
+
+        <br/>
+        <h5>Yesterday</h5>
+        <br/>
+
+        <div class="row wm-row">
+            <div class="col-sm-11 col-md-7">
+                    <a href="../editor/editor.template.client.html">
+                        <i class="fas fa-file-alt"></i>
+                        <label class="wm-course-label">WEBDEV 2 - React</label>
+                        <i class="fas fa-user-friends wm-group-icon"></i>
+                    </a>
+            </div>
+            <div class="col-md-2 d-none d-md-block">Meng Wang</div>
+            <div class="col-md-2 d-none d-md-block">May 4, 2018</div>
+            <div class="col-sm-1 col-md-1"><i class="fas fa-times"></i></div>
+        </div>
+
+        <br/>
+        <h5>Previous 7 days</h5>
+        <br/>
+
+        <div class="row wm-row">
+            <div class="col-sm-11 col-md-7">
+                    <a href="../editor/editor.template.client.html">
+                        <i class="fas fa-file-alt"></i>
+                        <label class="wm-course-label">WEBDEV Syllabus</label>
+                        <i class="fas fa-user-friends wm-group-icon"></i>
+                    </a>
+            </div>
+            <div class="col-md-2 d-none d-md-block">Meng Wang</div>
+            <div class="col-md-2 d-none d-md-block">May 3, 2018</div>
+            <div class="col-sm-1 col-md-1"><i class="fas fa-times"></i></div>
+        </div>
+        <div class="row wm-row">
+            <div class="col-sm-11 col-md-7">
+                    <a href="../editor/editor.template.client.html">
+                        <i class="fas fa-file-alt"></i>
+                        <label class="wm-course-label">WEBDEV 1 - JavaScript, Java, SQL</label>
+                        <span class="fa-stack">
+                            <i class="fas fa-circle fa-stack-2x wm-grey"></i>
+                            <span class="fa-layers-counter fa-stack-1x fa-inverse wm-circle-number">8</span>
+                        </span>
+
+                        <i class="fas fa-user-friends wm-group-icon"></i>
+                    </a>
+            </div>
+            <div class="col-md-2 d-none d-md-block">Meng Wang</div>
+            <div class="col-md-2 d-none d-md-block">May 3, 2018</div>
+            <div class="col-sm-1 col-md-1"><i class="fas fa-times"></i></div>
+        </div>
+    </div>
+        <div class="wm-floating-parent">
+
+             <span class="fa-stack fa-2x wm-floating-child">
+                <i class="fas fa-circle fa-stack-2x wm-red"></i>
+                <i class="fas fa-plus fa-stack-1x wm-white wm-icon-weight"></i>
+             </span>
+        </div>
+
+</body>
+</html>
