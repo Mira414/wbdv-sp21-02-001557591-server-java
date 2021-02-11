@@ -1,0 +1,34 @@
+.wm-sticky-Nav-Bar{
+    background-color: #5087ed;
+    position:fixed;
+    padding: 10px;
+    width: 100%;
+    z-index: 0;
+}
+
+.wm-container{
+    padding-top: 58px;
+    width: 80%;
+}
+
+.wm-input{
+    background-color: #6c9aee;
+    border: 0;
+    font-weight: bolder;
+}
+
+.wm-margin{
+    margin-left: 100px;
+}
+
+.wm-red{
+    color: red;
+}
+
+.wm-white{
+    color: white;
+}
+
+.wm-grey{
+    color: #b1b1b1;
+}
