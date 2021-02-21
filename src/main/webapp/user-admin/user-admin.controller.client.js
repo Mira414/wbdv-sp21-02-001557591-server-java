@@ -6,8 +6,6 @@ var $lastnameFld
 var $firstnameFld
 var $roleFld
 
-// var $passwordTd
-// var hideOrSee
 
 var $createBtn
 var $updateBtn
@@ -29,10 +27,7 @@ function main(){
     $firstnameFld = $("#firstName-fld")
     $roleFld = $("#role-Fld")
 
-    // $passwordTd = $(".password-td")
-    // hideOrSee = "password"
-    // $passwordTd.append(`<input id="password-fld" type="${hideOrSee}" class="form-control"
-    //                        placeholder="Password"/>`)
+    $passwordFld = $("#password-fld")
 
     $createBtn = $(".wm-create")
     $updateBtn = $(".wm-update")
@@ -45,7 +40,6 @@ function main(){
             users = actualUsers
             renderTable(users)
         })
-    $passwordFld = $("#password-fld")
 }
 
 function renderTable(users){
@@ -110,9 +104,7 @@ function editUser(event) {
     var userId = $(event.target).attr("id")
     currentUser = users.find(user => user._id === userId)
 
-    // $passwordFld.remove()
-    // $passwordTd.append(`<input id="password-fld" type="text" class="form-control"
-    //                    value="${currentUser.password}"/>`)
+    $passwordFld.removeAttr("type")
     $passwordFld.val(currentUser.password)
     $usernameFld.val(currentUser.username)
     $lastnameFld.val(currentUser.lastname)
