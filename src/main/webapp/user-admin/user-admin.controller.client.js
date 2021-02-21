@@ -1,17 +1,4 @@
 
-// (function () {
-//     var $usernameFld, $passwordFld;
-//     var $firstNameFld, $lastNameFld, $roleFld;
-//     var $removeBtn, $editBtn, $createBtn;
-//     var $userRowTemplate, $tbody;
-
-
-//     function selectUser() { … }
-
-//     function findAllUsers() { … } // optional - might not need this
-//     function findUserById() { … } // optional - might not need this
-// })();
-
 
 var $usernameFld
 var $passwordFld
@@ -19,43 +6,52 @@ var $lastnameFld
 var $firstnameFld
 var $roleFld
 
+// var $passwordTd
+// var hideOrSee
+
 var $createBtn
-var $editBtn
+var $updateBtn
 
 var $tbody
 var users
+var currentUser
 
 var userServices = new AdminUserServiceClient()
 
 
 function main(){
+    console.log("main")
     $tbody = $(".wm-tbody")
 
     $usernameFld = $("#username-fld")
-    $passwordFld = $("#password-fld")
+
     $lastnameFld = $("#lastName-fld")
     $firstnameFld = $("#firstName-fld")
     $roleFld = $("#role-Fld")
 
+    // $passwordTd = $(".password-td")
+    // hideOrSee = "password"
+    // $passwordTd.append(`<input id="password-fld" type="${hideOrSee}" class="form-control"
+    //                        placeholder="Password"/>`)
+
     $createBtn = $(".wm-create")
-    $editBtn = $(".wm-edit")
+    $updateBtn = $(".wm-update")
 
     $createBtn.click(createUser)
-    $editBtn.click(editUser)
+    $updateBtn.click(updateUser)
 
-    console.log(typeof userServices.findAllUsers())
     userServices.findAllUsers()
         .then(function (actualUsers){
             users = actualUsers
             renderTable(users)
-            $(".wm-delete-btn").click(deleteUser)
         })
-
+    $passwordFld = $("#password-fld")
 }
 
 function renderTable(users){
-    console.log(users)
+    $tbody.empty()
     let user;
+
     for(var i=0; i<users.length; i++){
         user = users[i]
         $tbody.append(`<tr class="wm-template wm-user wm-hidden">
@@ -66,43 +62,89 @@ function renderTable(users){
                     <td class="wm-role">${user.role}</td>
                     <td class="wm-actions">
                         <span class="pull-right">
-                            <i class="fa-2x fa fa-times wm-remove"></i>
-                            <i class="fa-2x fa fa-pencil wm-edit"></i>
+                            <i id="${i}" class="fa-2x fa fa-times wm-delete-btn"></i>
+                            <i id="${user._id}" class="fa-2x fa fa-pencil wm-edit-btn"></i>
                         </span>
                     </td>
                 </tr>`)
     }
+    $(".wm-delete-btn").click(deleteUser)
+    $(".wm-edit-btn").click(editUser)
 }
 
 function createUser() {
-    console.log("controller's create user")
     let newUser = {
         'username': $usernameFld.val(),
         'password': $passwordFld.val(),
         'lastname': $lastnameFld.val(),
         'firstname': $firstnameFld.val(),
-        'role': $roleFld.val()
+        'role': $roleFld.val(),
     };
     userServices.createUser(newUser).then(
-       function (){
+       function (response){
+           newUser._id = response._id
            users.push(newUser)
            renderTable(users)
            $usernameFld.val("");
            $passwordFld.val("");
            $lastnameFld.val("")
            $firstnameFld.val("")
-           $roleFld.val("")
+           $roleFld.val("FACULTY")
        }
 
     )
 }
 
-function deleteUser() {
-    console.log("deleteUser")
+function deleteUser(event) {
+    var index = $(event.target).attr("id")
+    var id = users[index]._id
+    userServices.deleteUser(id).then(function (){
+        console.log("users before splice "+users.length)
+        users.splice(index,1)
+        console.log("users after splice "+users.length)
+        renderTable(users)
+    })
 }
 
-function editUser() {
-    console.log("editUser")
+function editUser(event) {
+    var userId = $(event.target).attr("id")
+    currentUser = users.find(user => user._id === userId)
+
+    // $passwordFld.remove()
+    // $passwordTd.append(`<input id="password-fld" type="text" class="form-control"
+    //                    value="${currentUser.password}"/>`)
+    $passwordFld.val(currentUser.password)
+    $usernameFld.val(currentUser.username)
+    $lastnameFld.val(currentUser.lastname)
+    $firstnameFld.val(currentUser.firstname)
+    $roleFld.val(currentUser.role)
+
+}
+
+function updateUser(){
+    currentUser.username = $usernameFld.val()
+    currentUser.password = $passwordFld.val()
+    currentUser.lastname = $lastnameFld.val()
+    currentUser.firstname = $firstnameFld.val()
+    currentUser.role = $roleFld.val()
+    userServices.updateUser(currentUser._id, currentUser).then(function (){
+        for(var i = 0;i<users.length;i++){
+            if(users[i]._id==currentUser._id){
+                users[i].username = currentUser.username
+                users[i].password = currentUser.password
+                users[i].lastname = currentUser.lastname
+                users[i].firstname = currentUser.firstname
+                users[i].role = currentUser.role
+                break
+            }
+        }
+        renderTable(users)
+        $usernameFld.val("");
+        $passwordFld.val("");
+        $lastnameFld.val("")
+        $firstnameFld.val("")
+        $roleFld.val("FACULTY")
+    })
 }
 
 $(main)
