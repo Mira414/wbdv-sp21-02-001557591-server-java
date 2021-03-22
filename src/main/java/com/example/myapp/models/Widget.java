@@ -2,7 +2,7 @@ package com.example.myapp.models;
 
 public class Widget {
 
-    private long id;
+    private Long id;
     private String topicId;
     private String name;
     private String type;
@@ -19,13 +19,13 @@ public class Widget {
     public Widget() {
     }
 
-    public Widget(long id, String topicId, String name) {
+    public Widget(Long id, String topicId, String name) {
         this.id = id;
         this.topicId = topicId;
         this.name = name;
     }
 
-    public Widget(long id, String topicId, String type, String text) {
+    public Widget(Long id, String topicId, String type, String text) {
         this.id = id;
         this.topicId = topicId;
         this.type = type;
@@ -33,7 +33,7 @@ public class Widget {
     }
 
     public Widget(String name,
-                  long id,
+                  Long id,
                   String topicId,
                   String type,
                   Integer widgetOrder,
@@ -68,11 +68,11 @@ public class Widget {
         this.name = name;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -34,4 +34,19 @@ public class WidgetController {
         return service.createWidget(topicId, widget);
     }
 
+    @DeleteMapping("/api/widgets/{widgetId}")
+    public int deleteWidget(
+            @PathVariable("widgetId") Long id
+    ){
+        return service.deleteWidget(id);
+    }
+
+    @PutMapping("/api/widgets/{widgetId}")
+    public int updateWidget(
+           @PathVariable("widgetId") Long id,
+           @RequestBody Widget widget
+    ){
+        return service.updateWidget(id, widget);
+    }
+
 }
