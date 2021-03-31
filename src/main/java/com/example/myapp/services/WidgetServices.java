@@ -47,6 +47,10 @@ public class WidgetServices {
 //        return widgetList;
     }
 
+    public Widget findWidgetById(Long wid){
+        return repository.findById(wid).get();
+    }
+
     public Widget createWidget(String topicId, Widget wt){
         wt.setTopicId(topicId);
         return repository.save(wt);
@@ -63,7 +67,7 @@ public class WidgetServices {
         }
         else{
             System.out.println("couldn't delete id= " + id + " cause cannot find it");
-            return -1;
+            return 0;
         }
 //        int index = -1;
 //        for (Widget wt : widgets) {
@@ -93,7 +97,7 @@ public class WidgetServices {
             return 1;
         }else{
             System.out.println("couldn't update id= " + id + " cause cannot find it");
-            return -1;
+            return 0;
         }
 
 //        int index = -1;
